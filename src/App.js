@@ -22,6 +22,7 @@ import Signup from './components/Signup/Signup'
 import SingleRoom from "./screens/Rooms/SingleRoom";
 import Booknow from './components/Booking/Booknow'
 import MyBookings from './components/Booking/MyBookings'
+import MyFooter from './components/Footer/MyFooter';
 // import Error from "./screens/Error";
 
 
@@ -33,42 +34,28 @@ function App() {
 
  
   return (
-    <div className="App">
+   <div className="App flex flex-col min-h-screen">
       <BrowserRouter>
         <UserAuthContextProvider>
           <Navbar/>
-          <Routes>
-            <Route path="/" index element={<Home/>} />
-            <Route path="/rooms" element={<Rooms/>} />
 
-            <Route path="/about" element={<About />} />
-           
-            {/* <Route
-              path="/bookings"
-              element={
-                <ProtectedRoute>
-                  {" "}
-                  <Bookings />{" "}
-                </ProtectedRoute>
-              }
-            /> */}
+          <main className="flex-grow"> {/* 3. Ye content ko push karega */}
+            <Routes>
+              <Route path="/" index element={<Home/>} />
+              <Route path="/rooms" element={<Rooms/>} />
+              <Route path="/about" element={<About />} />
+              <Route path="/booknow/:roomType" element={<ProtectedRoute><Booknow /></ProtectedRoute>} />
+              <Route path="/contact" element={<Contact />} />
+              <Route path="/login" element={<Login />} />
+              <Route path="/signup" element={<Signup />} />
+              <Route path="/singleRoom/:roomType" element={<SingleRoom />} />
+              <Route path="/mybookings" element={<MyBookings/>} />
+            </Routes>
+          </main>
 
-            { <Route
-              path="/booknow/:roomType"
-              element={
-                <ProtectedRoute>
-                  <Booknow />
-                </ProtectedRoute>
-              }
-            /> }
-            <Route path="/contact" element={<Contact />} />
-            <Route path="/login" element={<Login />} />
-            <Route path="/signup" element={<Signup />} />
-            <Route path="/singleRoom/:roomType" element={<SingleRoom />} />
-            <Route path="/mybookings" element={<MyBookings/>} />
+          <MyFooter /> {/* 4. Footer ko yahan rakhein, Routes ke bahar! */}
 
-            {/* <Route path="*" element={<Error />} /> */}
-          </Routes>
+          
         </UserAuthContextProvider>
       </BrowserRouter>
     </div>

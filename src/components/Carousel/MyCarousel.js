@@ -2,74 +2,64 @@ import React from 'react';
 import slider1 from '../../imgs/hotel1.jpg';
 import slider2 from '../../imgs/hotel2.jpg';
 import slider3 from '../../imgs/hotel3.jpg';
+import { Link } from 'react-router-dom';
 import './MyCarousel.css';
-import { Link } from 'react-router-dom'
 
+const slides = [
+    { img: slider1, id: "0" },
+    { img: slider2, id: "1" },
+    { img: slider3, id: "2" }
+];
 
-var sliderStyle1 = {
-    backgroundImage: `url(${slider1})`
-}
-
-var sliderStyle2 = {
-    backgroundImage: `url(${slider2})`
-}
-
-var sliderStyle3 = {
-    backgroundImage: `url(${slider3})`
-}
 const MyCarousel = (props) => {
-
     return (
-        <div className="carousel slide" id="carouselExampleIndicators" data-ride="carousel" data-interval='7000'>
-            <ol className='carousel-indicators'>
-                <li data-target="#carouselExampleIndicators" data-slide-to="0" className='active'></li>
-                <li data-target="#carouselExampleIndicators" data-slide-to="1" ></li>
-                <li data-target="#carouselExampleIndicators" data-slide-to="2" ></li>
+        <div id="carouselExampleIndicators" className="carousel slide carousel-fade" data-ride="carousel" data-interval="5000">
+            {/* Indicators */}
+            <ol className="carousel-indicators">
+                {slides.map((_, index) => (
+                    <li 
+                        key={index}
+                        data-target="#carouselExampleIndicators" 
+                        data-slide-to={index} 
+                        className={index === 0 ? "active" : ""}
+                    ></li>
+                ))}
             </ol>
-            <div className='carousel-inner' role="listbox">
 
-                {/* Slide 1 */}
-
-                <div className='carousel-item active' style={sliderStyle1}>
-                    <div className='carousel-caption text-center'>
-                        <h1>{props.title}</h1>
-                        <h3>{props.subtitle}</h3>
-                        <Link to="/rooms"><a className='btn btn-outline-light btn-lg carousel-btn'>Our Rooms</a></Link>
+            <div className="carousel-inner">
+                {slides.map((slide, index) => (
+                    <div 
+                        key={index}
+                        className={`carousel-item ${index === 0 ? "active" : ""}`}
+                        style={{
+                            backgroundImage: `linear-gradient(rgba(0,0,0,0.4), rgba(0,0,0,0.4)), url(${slide.img})`,
+                            backgroundSize: 'cover',
+                            backgroundPosition: 'center',
+                            height: '90vh'
+                        }}
+                    >
+                        <div className="carousel-caption d-flex flex-column align-items-center justify-content-center h-100">
+                            <span className="premium-tag">Experience Excellence</span>
+                            <h1 className="display-2 premium-title">{props.title}</h1>
+                            <p className="premium-subtitle">{props.subtitle}</p>
+                            
+                            <Link to="/rooms" className="premium-btn">
+                                EXPLORE ROOMS
+                            </Link>
+                        </div>
                     </div>
-                </div>
-
-                {/* Slide 2 */}
-
-                <div className='carousel-item ' style={sliderStyle2}>
-                    <div className='carousel-caption text-center'>
-                        <h1>{props.title}</h1>
-                        <h3>{props.subtitle}</h3>
-                        <Link to="/rooms"><a className='btn btn-outline-light btn-lg carousel-btn'>Our Rooms</a></Link>
-                    </div>
-                </div>
-
-                {/* Slide 3 */}
-
-                <div className='carousel-item' style={sliderStyle3}>
-                    <div className='carousel-caption text-center'>
-                        <h1>{props.title}</h1>
-                        <h3>{props.subtitle}</h3>
-                        <Link to="/rooms"><a className='btn btn-outline-light btn-lg carousel-btn'>Our Rooms</a></Link>
-                    </div>
-                </div>
-
+                ))}
             </div>
 
-            <a className='carousel-control-prev' href="#carouselExampleIndicators" role="button" data-slide='prev'>
-                <span className='carousel-control-prev-icon' aria-hidden="true"></span>
+            {/* Controls */}
+            <a className="carousel-control-prev" href="#carouselExampleIndicators" role="button" data-slide="prev">
+                <span className="carousel-control-prev-icon" aria-hidden="true"></span>
             </a>
-
-
-            <a className='carousel-control-next' href="#carouselExampleIndicators" role="button" data-slide='next'>
-                <span className='carousel-control-next-icon' aria-hidden="true"></span>
+            <a className="carousel-control-next" href="#carouselExampleIndicators" role="button" data-slide="next">
+                <span className="carousel-control-next-icon" aria-hidden="true"></span>
             </a>
         </div>
-    )
+    );
 }
 
 export default MyCarousel;

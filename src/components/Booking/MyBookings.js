@@ -1,103 +1,109 @@
+import React, { useState, useEffect } from "react"; 
 import { onValue, ref, remove } from "firebase/database";
-import React, { useState } from "react";
-import Table from "react-bootstrap/Table";
+import { Table, Container, Row, Col, Card } from "react-bootstrap"; 
 import { AiOutlineDelete } from "react-icons/ai";
 import { db } from "../../config/firebase-config";
 import { Link } from "react-router-dom";
 import { useUserAuth } from "../../Context/UserAuthContext";
 import styled from "styled-components";
 
+// Styled component for status colors
 const StatusTD = styled.td`
   font-weight: bold;
-  color: ${(props) => (props.type === "Pending" ? "blue" : "")};
-  color: ${(props) => (props.type === "Accepted" ? "green" : "")};
-  color: ${(props) => (props.type === "Rejected" ? "red" : "")};
+  color: ${(props) => {
+    if (props.type === "Pending") return "#007bff"; 
+    if (props.type === "Accepted") return "#28a745"; 
+    if (props.type === "Rejected") return "#dc3545"; 
+    return "inherit";
+  }};
 `;
 
-const MyBookings = () => {
+  const MyBookings = () => {
   const [bookings, setBookings] = useState([]);
   const { user } = useUserAuth();
 
-  React.useEffect(() => {
-    onValue(ref(db, "/bookings/"), (snapshot) => {
-      setBookings([]);
+  // Data Fetching Logic
+  useEffect(() => {
+    if (!user?.email) return;
+
+    const bookingRef = ref(db, "/bookings/");
+    const unsubscribe = onValue(bookingRef, (snapshot) => {
       const data = snapshot.val();
-      if (data !== null) {
-        // eslint-disable-next-line array-callback-return
-        Object.values(data).map((todo) => {
-          if (todo.refID === user.email) {
-            setBookings((oldArray) => [...oldArray, todo]);
-          }
-        });
+      if (data) {
+        // Object ko array mein convert karke filter kar rahe hain
+        const filteredBookings = Object.values(data).filter(
+          (item) => item.refID === user.email
+        );
+        setBookings(filteredBookings);
+      } else {
+        setBookings([]);
       }
     });
-    // eslint-disable-next-line react-hooks/exhaustive-deps
-  });
 
-  const deleteBooking = (dlt) => {
-    remove(ref(db, `/bookings/${dlt.cnic}`));
+    return () => unsubscribe(); 
+  }, [user?.email]);
+
+  // Delete Function (Jo aapke code mein miss ho gaya tha)
+  const deleteBooking = (booking) => {
+    if(window.confirm("Are you sure you want to delete this booking?")) {
+        // Firebase path: bookings/CNIC_NUMBER (Aapne cnic ko ID mana hai)
+        remove(ref(db, `/bookings/${booking.cnic}`));
+    }
   };
+
+  // Main UI Rendering
   return (
-    <>
+    <Container style={{ marginTop: "100px" }}>
+      <h2 className="mb-4 text-center">My Reservations</h2>
+      
       {bookings.length > 0 ? (
-        <Table
-          striped
-          bordered
-          hover
-          size="sm"
-          style={{ marginTop: "80px", width: "90%", margin: "80px auto" }}
-          responsive
-        >
-          <thead>
+        <Table striped bordered hover responsive className="shadow-sm">
+          <thead className="bg-dark text-white">
             <tr>
-              {/* <th>ID</th> */}
-              <th>Room type</th>
-              <th>Start Date</th>
-              <th>End Date</th>
-              <th>Capactiy</th>
+              <th>Room Type</th>
+              <th>Check-in</th>
+              <th>Check-out</th>
+              <th>Guests</th>
               <th>Price</th>
               <th>Status</th>
+              <th>Action</th>
             </tr>
           </thead>
           <tbody>
-            {bookings.map((booking) => (
-              <tr key={booking.id}>
-                <>
-                  {/* <td>{booking.id}</td> */}
-                  <td>{booking.type}</td>
-                  <td>{booking.startDate}</td>
-                  <td>{booking.endDate}</td>
-                  <td>{booking.capacity}</td>
-                  <td>{booking.totalPrice}</td>
-                  <StatusTD type={booking.status}>{booking.status}</StatusTD>
-                  <td style={{textAlign : "center"}} >
-                    <AiOutlineDelete
-                      color="red"
-                      style={{ cursor: "pointer", fontSize: "20px" }}
-                      onClick={() => deleteBooking(booking)}
-                    />
-                  </td>
-                </>
+            {bookings.map((booking, index) => (
+              <tr key={index}>
+                <td className="text-capitalize">{booking.type}</td>
+                <td>{booking.startDate}</td>
+                <td>{booking.endDate}</td>
+                <td>{booking.persons}</td>
+                <td>₹{booking.totalPrice}</td>
+                <StatusTD type={booking.status}>{booking.status}</StatusTD>
+                <td className="text-center">
+                  <AiOutlineDelete
+                    color="red"
+                    size={22}
+                    style={{ cursor: "pointer" }}
+                    onClick={() => deleteBooking(booking)}
+                  />
+                </td>
               </tr>
             ))}
           </tbody>
         </Table>
       ) : (
-        <div className="container roomerror">
-          <div className="row">
-            <div className="col-md-6 col-12 mx-auto">
-              <div className="card shadow-lg  p-4 error">
-                <h1 className="text-center display-4">No bookings.</h1>
-                <h3 className="text-center p-3">Click below to start Booking!.</h3>
-                <Link to="/rooms" className="btn btn-warning mt-4 start-booking-btn ">
-                  Start Booking.
-                </Link>
-              </div>
-            </div>
-          </div>
-        </div>
+        <Row>
+          <Col md={6} className="mx-auto text-center">
+            <Card className="p-5 shadow border-0">
+              <h3>No Bookings Found</h3>
+              <p className="text-muted">You haven't made any reservations yet.</p>
+              <Link to="/rooms" className="btn btn-primary mt-3">
+                Book a Room Now
+              </Link>
+            </Card>
+          </Col>
+        </Row>
       )}
-    </>
+    </Container>
   );
 };
 

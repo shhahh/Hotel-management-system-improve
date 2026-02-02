@@ -1,70 +1,73 @@
-/* Carousel */
+/* Premium Fonts */
+@import url('https://fonts.googleapis.com/css2?family=Playfair+Display:ital,wght@0,400;0,700;1,400&family=Poppins:wght@300;400;600&display=swap');
 
-.carousel-item{
-    height:100vh;
+.carousel-item {
+    transition: transform 1.2s ease-in-out, opacity 1s ease-out !important;
 }
-.carousel-caption{
-    position: absolute;
-    top: 38%;
+
+.premium-tag {
+    letter-spacing: 0.5em;
     text-transform: uppercase;
-    width: 100%;
-    right: 0;
-    left: 0;
+    font-size: 12px;
+    font-weight: 600;
+    color: #c5a47e; /* Gold color */
+    margin-bottom: 20px;
+    animation: fadeInUp 1s ease-out;
 }
 
-.carousel-caption h1{
-    font-size: 3.8rem;
-    font-weight: 700;
-    letter-spacing: .3rem;
-    text-shadow: .1rem .1rem .8rem black;
-    padding-bottom: 1rem;
+.premium-title {
+    font-family: 'Playfair Display', serif;
+    font-weight: 400;
+    letter-spacing: -1px;
+    margin-bottom: 20px;
+    animation: fadeInUp 1.5s ease-out;
 }
 
-.carousel-caption h3{
-
-    font-size: 2rem;
-    text-shadow: .1rem .1rem .5rem #000;
-    padding-bottom: 1.6rem;
+.premium-subtitle {
+    font-family: 'Poppins', sans-serif;
+    font-weight: 300;
+    font-size: 18px;
+    letter-spacing: 2px;
+    margin-bottom: 40px;
+    opacity: 0.9;
+    animation: fadeInUp 2s ease-out;
 }
 
-.btn-lg{
-    border-width: medium;
-    border-radius: 0;
-    font-size: 1.1rem;
-}
-.carousel-btn{
-    background-color: #1f5156;
-    outline: none !important;
-    color: white !important;
-    border: none !important;
-    height: 50px;
-    border-radius: 24px;
-    padding:10px !important;
-    width: 160px;
+.premium-btn {
+    background: transparent;
+    border: 1px solid #fff;
+    color: #fff;
+    padding: 15px 40px;
+    font-size: 11px;
+    letter-spacing: 4px;
+    text-decoration: none;
+    transition: all 0.4s ease;
+    animation: fadeInUp 2.5s ease-out;
 }
 
-.carousel-btn:hover{
-    transition: 0.5s !important;
-    color: black !important;
-    border: 2px solid #1f5156 !important;
+.premium-btn:hover {
+    background: #fff;
+    color: #000;
+    text-decoration: none;
 }
 
+/* Indicators Styling */
+.carousel-indicators li {
+    width: 10px;
+    height: 10px;
+    border-radius: 50%;
+    margin: 0 8px;
+    background-color: #c5a47e;
+}
 
-@media (max-width:767px) {
-
-    .carousel-caption h1{
-        font-size: 2.3rem;
-        letter-spacing: .15rem;
-        padding-bottom: .5rem;
+/* Animations */
+@keyframes fadeInUp {
+    from {
+        opacity: 0;
+        transform: translateY(30px);
     }
-
-    .carousel-caption h3{
-        font-size: 1.2rem;
-        padding-bottom: 1.2rem;
+    to {
+        opacity: 1;
+        transform: translateY(0);
     }
-
-    .btn-lg{
-        font-size: 1rem;
-    }
-    
 }

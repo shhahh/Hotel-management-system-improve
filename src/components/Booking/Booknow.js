@@ -1,4 +1,5 @@
 import React, { useState } from "react";
+import { ROOMS_DATA } from "../../constants/roomsData";
 import { Link, useNavigate, useParams } from "react-router-dom";
 import moment from "moment";
 import DatePicker from "react-datepicker";
@@ -17,56 +18,7 @@ export default function Booknow() {
 
   const { roomType } = useParams();
   console.log(roomType)
-  var roomsDetails = {}
-  if (roomType == "single") {
-
-    roomsDetails = {
-      capacity: 1,
-      breakfast: "included",
-      price: 1200,
-      pets: "allowed",
-      roomtype: "single",
-      size: "250 sqft"
-    }
-
-  }
-
-  else if (roomType == "double") {
-    roomsDetails = {
-
-      capacity: 2,
-      breakfast: "included",
-      price: 2400,
-      pets: "allowed",
-      roomtype: "double",
-      size: "500 sqft"
-
-    }
-  }
-  else if (roomType == "family") {
-    roomsDetails = {
-      capacity: 6,
-      breakfast: "not included",
-      price: 3500,
-      pets: "not allowed",
-      roomtype: "family",
-      size: "750 sqft"
-
-    }
-  }
-
-  else if (roomType == "presidential") {
-    roomsDetails = {
-
-      capacity: 4,
-      breakfast: "included",
-      price: 4300,
-      pets: "not allowed",
-      roomtype: "presidential",
-      size: "1000 sqft"
-
-    }
-  }
+  const roomsDetails = ROOMS_DATA[roomType] || ROOMS_DATA.single;
 
   const [fullName, setFullName] = useState("");
   const [value, setValue] = useState(0);
