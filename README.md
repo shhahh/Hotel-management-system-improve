@@ -4,7 +4,8 @@ SNG Hotels is a high-end, luxury-focused Hotel Management System. This project h
 
 ## 🔗 Project Evolution
 - **Before (Legacy):** GitRepo - https://github.com/sngwebs786/HOTEL-MANAGEMENT-SYSTEM
-                       [https://sng-hotels.netlify.app/](https://sng-hotels.netlify.app/)
+                       [https://sng-hotels.netlify.app/]
+                       (https://sng-hotels.netlify.app/)
 
 - **After (Premium):** https://hotel-management-system-improve.vercel.app/
 ---
