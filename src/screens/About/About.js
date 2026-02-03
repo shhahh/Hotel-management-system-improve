@@ -37,7 +37,7 @@ const About = () => {
       </section>
 
        <div>
-          <AboutLegacy />
+          
         </div>
 
       {/* Modern Story Content */}
@@ -70,7 +70,7 @@ const About = () => {
         </div>
       </section>
 
-     
+     <AboutLegacy />
     </div>
   );
 };

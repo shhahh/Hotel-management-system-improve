@@ -1,70 +1,59 @@
-# Getting Started with Create React App
+# 🏨 SNG Hotels - Premium Hotel Management System
 
-This project was bootstrapped with [Create React App](https://github.com/facebook/create-react-app).
+SNG Hotels is a high-end, luxury-focused Hotel Management System. This project has been significantly overhauled to transition from a basic functional site to a premium, elite-level digital experience. We focused on high-end typography, cinematic visual storytelling, and a mobile-first responsive architecture.
 
-## Available Scripts
+## 🔗 Project Evolution
+- **Before (Legacy):** GitRepo - https://github.com/sngwebs786/HOTEL-MANAGEMENT-SYSTEM
+                       [https://sng-hotels.netlify.app/](https://sng-hotels.netlify.app/)
 
-In the project directory, you can run:
+- **After (Premium):** [https://demo.app/](https://demo.app/) *(Vercel link to be updated)*
 
-### `npm start`
+---
 
-Runs the app in the development mode.\
-Open [http://localhost:3000](http://localhost:3000) to view it in your browser.
+## ✨ Major Enhancements & UI/UX Improvements
 
-The page will reload when you make changes.\
-You may also see any lint errors in the console.
+### 🏠 Homepage: The Cinematic Entry
+- **Premium Carousel:** Redesigned with high-definition visuals, sophisticated headings, and custom-styled call-to-action (CTA) buttons.
+- **Improved Featured Rooms:** A cleaner, more grid-focused layout to highlight luxury suites.
+- **"Our Visual Stories" (New Section):** Added a modern, asymmetric masonry gallery to showcase the hotel's ambiance.
+- **Global Premium Footer:** Replaced the standard footer with a globally consistent, dark-themed premium footer with improved navigation links and branding.
 
-### `npm test`
+### 📖 About Page: Storytelling Redefined
+- **Cinematic Hero Section:** Implemented a clean, immersive look featuring high-quality video backgrounds and minimal overlay text.
+- **"Crafting Memorable Experiences" Section:** Upgraded with premium padding, "Playfair Display" typography, and a refined layout for better readability.
+- **"Our Heritage" (New Section):** Introduced a trust-building section showcasing history and hospitality milestones through elegant stat-cards.
 
-Launches the test runner in the interactive watch mode.\
-See the section about [running tests](https://facebook.github.io/create-react-app/docs/running-tests) for more information.
+### 🛌 Rooms & Search Experience
+- **Logic & UI Overhaul:** Re-engineered the room listing and search logic for a smoother user journey.
+- **Premium Detail View:** Every room card now features improved hover effects, better spacing, and high-end imagery.
 
-### `npm run build`
+### 🔐 Authentication & Contact (Login/Signup/Contact)
+- **Standardized UI:** Converted oversized elements into sleek, professional components.
+- **Capsule-Style Buttons:** Implemented modern, standard-sized (180px) rounded-full buttons across all forms.
+- **UX Logic:** Improved form validation and integrated responsive social login grids (Google/Facebook).
 
-Builds the app for production to the `build` folder.\
-It correctly bundles React in production mode and optimizes the build for the best performance.
+### 📱 Performance & Responsiveness
+- **Mobile-First Approach:** Completely optimized the Hamburger menu to include "About" and other missing links without disrupting the desktop view.
+- **Stability:** Patched `ResizeObserver` runtime errors to ensure a seamless experience across all device screen sizes.
 
-The build is minified and the filenames include the hashes.\
-Your app is ready to be deployed!
+---
 
-See the section about [deployment](https://facebook.github.io/create-react-app/docs/deployment) for more information.
+## 🛠️ Technology Stack
+- **Frontend:** React.js (Hooks, Context API)
+- **Language:** JavaScript (ES6+)
+- **Styling:** Tailwind CSS & Material UI (MUI)
+- **Design Strategy:** Luxury Minimalism
+- **Collaborator:** SHAH&Gemini 
 
-### `npm run eject`
+---
 
-**Note: this is a one-way operation. Once you `eject`, you can't go back!**
+## 🚀 How to Run Locally
 
-If you aren't satisfied with the build tool and configuration choices, you can `eject` at any time. This command will remove the single build dependency from your project.
+1. Clone the repository:
+   ```bash
+   git clone [https://github.com/shhahh/Hotel-management-system-improve.git](https://github.com/shhahh/Hotel-management-system-improve.git)
 
-Instead, it will copy all the configuration files and the transitive dependencies (webpack, Babel, ESLint, etc) right into your project so you have full control over them. All of the commands except `eject` will still work, but they will point to the copied scripts so you can tweak them. At this point you're on your own.
+   npm install
+   npm start
 
-You don't have to ever use `eject`. The curated feature set is suitable for small and middle deployments, and you shouldn't feel obligated to use this feature. However we understand that this tool wouldn't be useful if you couldn't customize it when you are ready for it.
-
-## Learn More
-
-You can learn more in the [Create React App documentation](https://facebook.github.io/create-react-app/docs/getting-started).
-
-To learn React, check out the [React documentation](https://reactjs.org/).
-
-### Code Splitting
-
-This section has moved here: [https://facebook.github.io/create-react-app/docs/code-splitting](https://facebook.github.io/create-react-app/docs/code-splitting)
-
-### Analyzing the Bundle Size
-
-This section has moved here: [https://facebook.github.io/create-react-app/docs/analyzing-the-bundle-size](https://facebook.github.io/create-react-app/docs/analyzing-the-bundle-size)
-
-### Making a Progressive Web App
-
-This section has moved here: [https://facebook.github.io/create-react-app/docs/making-a-progressive-web-app](https://facebook.github.io/create-react-app/docs/making-a-progressive-web-app)
-
-### Advanced Configuration
-
-This section has moved here: [https://facebook.github.io/create-react-app/docs/advanced-configuration](https://facebook.github.io/create-react-app/docs/advanced-configuration)
-
-### Deployment
-
-This section has moved here: [https://facebook.github.io/create-react-app/docs/deployment](https://facebook.github.io/create-react-app/docs/deployment)
-
-### `npm run build` fails to minify
-
-This section has moved here: [https://facebook.github.io/create-react-app/docs/troubleshooting#npm-run-build-fails-to-minify](https://facebook.github.io/create-react-app/docs/troubleshooting#npm-run-build-fails-to-minify)
+   Developed with ❤️ by SHAH ... 
