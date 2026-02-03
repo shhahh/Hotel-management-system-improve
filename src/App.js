@@ -21,6 +21,7 @@ import Signup from './components/Signup/Signup';
 import Booknow from './components/Booking/Booknow';
 import MyBookings from './components/Booking/MyBookings';
 import MyFooter from './components/Footer/MyFooter';
+import ScrollToTop from './components/ScrollToTop';
 
 function App() {
   return (
@@ -28,6 +29,7 @@ function App() {
       <BrowserRouter>
         <UserAuthContextProvider>
           <Navbar/>
+          <ScrollToTop />
           <main className="flex-grow">
             <Routes>
               <Route path="/" index element={<Home/>} />
