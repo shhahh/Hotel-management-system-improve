@@ -6,8 +6,7 @@ SNG Hotels is a high-end, luxury-focused Hotel Management System. This project h
 - **Before (Legacy):** GitRepo - https://github.com/sngwebs786/HOTEL-MANAGEMENT-SYSTEM
                        [https://sng-hotels.netlify.app/](https://sng-hotels.netlify.app/)
 
-- **After (Premium):** [https://demo.app/](https://demo.app/) *(Vercel link to be updated)*
-
+- **After (Premium):** https://hotel-management-system-improve.vercel.app/
 ---
 
 ## ✨ Major Enhancements & UI/UX Improvements
@@ -55,5 +54,6 @@ SNG Hotels is a high-end, luxury-focused Hotel Management System. This project h
 
    npm install
    npm start
+   Must - You have to install Node.js Version 20.11.1.
 
-   Developed with ❤️ by SHAH ... 
+   Developer -  SHAH .....
