@@ -1,45 +1,34 @@
-import { child, get, ref } from "firebase/database";
-import { useEffect } from "react";
-import { useDispatch } from "react-redux";
+// 1. Pehle Libraries (React, Router, etc.)
+import React from "react";
 import { BrowserRouter, Route, Routes } from "react-router-dom";
-import "./App.css";
-import { db } from './config/firebase-config';
-import { ReadFromFirebase } from "./Redux/action";
-// import Error from "./pages/Error";
-// import Bookings from "./Components/bookings";
-import ProtectedRoute from "./components/ProtectedRoutes";
 import { UserAuthContextProvider } from "./Context/UserAuthContext";
+import ProtectedRoute from "./components/ProtectedRoutes";
 
+// 2. Phir CSS
+import "./App.css";
 
-import Home from './screens/Home/Home'
-import About from './screens/About/About'
-import Contact from './screens/Contact/Contact'
-import Rooms from './screens/Rooms/Rooms'
-// import Bookings from './screens/Bookings/Booking'
-import Navbar from './components/Navbar/Navbar'
-import Login from './components/Login/Login'
-import Signup from './components/Signup/Signup'
+// 3. Phir Screens/Pages
+import Home from './screens/Home/Home';
+import About from './screens/About/About';
+import Contact from './screens/Contact/Contact';
+import Rooms from './screens/Rooms/Rooms';
 import SingleRoom from "./screens/Rooms/SingleRoom";
-import Booknow from './components/Booking/Booknow'
-import MyBookings from './components/Booking/MyBookings'
+
+// 4. Phis Components
+import Navbar from './components/Navbar/Navbar';
+import Login from './components/Login/Login';
+import Signup from './components/Signup/Signup';
+import Booknow from './components/Booking/Booknow';
+import MyBookings from './components/Booking/MyBookings';
 import MyFooter from './components/Footer/MyFooter';
-// import Error from "./screens/Error";
-
-
-
-
 
 function App() {
-  const dispatch = useDispatch();
-
- 
   return (
-   <div className="App flex flex-col min-h-screen">
+    <div className="App flex flex-col min-h-screen">
       <BrowserRouter>
         <UserAuthContextProvider>
           <Navbar/>
-
-          <main className="flex-grow"> {/* 3. Ye content ko push karega */}
+          <main className="flex-grow">
             <Routes>
               <Route path="/" index element={<Home/>} />
               <Route path="/rooms" element={<Rooms/>} />
@@ -52,10 +41,7 @@ function App() {
               <Route path="/mybookings" element={<MyBookings/>} />
             </Routes>
           </main>
-
-          <MyFooter /> {/* 4. Footer ko yahan rakhein, Routes ke bahar! */}
-
-          
+          <MyFooter />
         </UserAuthContextProvider>
       </BrowserRouter>
     </div>
