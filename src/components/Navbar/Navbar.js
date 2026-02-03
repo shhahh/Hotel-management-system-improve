@@ -85,6 +85,7 @@ function Navbar() {
           <li><NavLink to="/" onClick={handleClick}>Home</NavLink></li>
           <li><NavLink to="/about" onClick={handleClick}>About</NavLink></li>
           <li><NavLink to="/rooms" onClick={handleClick}>Rooms</NavLink></li>
+          <li><NavLink to="/contact" onClick={handleClick}>Contact</NavLink></li>
           <li><NavLink to="/mybookings" onClick={handleClick}>My Bookings</NavLink></li>
           {!user ? (
             <NavLink to="/login" className="text-center p-3 bg-premium text-white rounded-lg">Login</NavLink>
