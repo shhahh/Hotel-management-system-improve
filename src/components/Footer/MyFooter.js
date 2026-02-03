@@ -62,7 +62,7 @@ const MyFooter = () => {
 
         {/* Bottom Bar */}
         <div className="mt-10 flex flex-col md:flex-row justify-between items-center text-slate-500 text-[10px] tracking-[0.3em] uppercase">
-          <p>© 2006-2021 SNG HOTELS. ALL RIGHTS RESERVED.</p>
+          <p>© 2006-2026 SNG HOTELS. ALL RIGHTS RESERVED.</p>
           <div className="flex gap-8 mt-4 md:mt-0">
             <span className="hover:text-white cursor-pointer transition">Privacy Policy</span>
             <span className="hover:text-white cursor-pointer transition">Terms & Conditions</span>

@@ -6,14 +6,14 @@ import { Link } from 'react-router-dom';
 import './MyCarousel.css';
 
 const slides = [
+    { img: slider3, id: "2" }, // Ab ye 0 index par hai, toh sabse pehle dikhega
     { img: slider1, id: "0" },
-    { img: slider2, id: "1" },
-    { img: slider3, id: "2" }
+    { img: slider2, id: "1" }
 ];
 
 const MyCarousel = (props) => {
     return (
-        <div id="carouselExampleIndicators" className="carousel slide carousel-fade" data-ride="carousel" data-interval="5000">
+        <div id="carouselExampleIndicators" className="carousel slide carousel-fade" data-ride="carousel" data-interval="3000">
             {/* Indicators */}
             <ol className="carousel-indicators">
                 {slides.map((_, index) => (
